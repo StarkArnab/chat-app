@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.routes");
+const { chatRouter } = require("./routes/chat.routes");
+const { messageRouter } = require("./routes/message.routes");
 require("dotenv").config();
 
 const app = express();
@@ -14,6 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRouter);
+app.use("/api/chat", chatRouter);
+app.use("/api/message", messageRouter);
 
 const PORT = process.env.PORT || 8080;
 
