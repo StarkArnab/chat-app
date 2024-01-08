@@ -21,7 +21,7 @@ const UserChat = ({ chat, user }) => {
       </div>
       <div className="d-flex flex-column align-items-end">
         <div className="date">08/01/2024</div>
-        <div className="this-user-notifications">2</div>
+        <div className="this-user-notifications">1</div>
         <span className="user-online"></span>
       </div>
     </Stack>
