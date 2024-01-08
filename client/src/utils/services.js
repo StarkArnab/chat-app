@@ -10,9 +10,28 @@ export const postRequest = async (url, body) => {
   });
 
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   if (!res.ok) {
     let message;
+    if (data?.message) {
+      message = data.message;
+    } else {
+      message = data;
+    }
+    console.log(message);
+    return { error: true, message };
+  }
+  return data;
+};
+
+export const getRequest = async (url) => {
+  const res = await fetch(url);
+
+  const data = await res.json();
+
+  // console.log(data);
+  if (!res.ok) {
+    let message = "An error occured";
     if (data?.message) {
       message = data.message;
     } else {
